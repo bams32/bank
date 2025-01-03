@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="an">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;
+0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <title>Responsive Table</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+            font-weight: 600;
+            flex-direction: column;
+            font-size: 10px;
+           
+        }
+
+        .date {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-right: 10px;
+            padding: 10px;
+            margin: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+            font-weight: 600;
+            flex-direction: column;
+            font-size: 10px;
+            border: 1px solid #999;
+            border-radius: 5px;
+            box-shadow: 0 4 20px rgba(0, 0, 0, 0.1);
+
+
+        }
+
+        .date p {
+            color: #555;
+            font-size: 12px;
+            font-weight: 400;
+            text-align: left;
+            padding: 0;
+            text-decoration: none;
+            /* margin-right: 10px; */
+        }
+
+        .date h3 {
+            color: #555;
+            font-weight: 400;
+            text-align: left;
+            padding: 0;
+            text-decoration: none;
+        }
+
+        body {
+            font-family: "Poppins", serif;
+            font-weight: 300;
+            font-style: normal;
+            margin: 20px;
+        }
+        #nom {
+            text-transform: uppercase;
+            color: rgb(153, 23, 23);
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        #prenom {
+            text-transform: uppercase;
+            color: #3b72ce;
+        }
+
+        .bienvenue {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+            font-weight: 600;
+            flex-direction: column;
+            font-size: 10px;
+            border: 1px solid #999;
+            border-radius: 5px;
+            box-shadow: 0 4 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .bienvenue h1 {
+            color: rgb(156, 15, 15);
+            font-size: 17px;
+            font-weight: 600;
+            padding: 10px;
+            text-decoration: underline;
+        }
+
+        .bienvenue p {
+            color: #555;
+            font-size: 17px;
+            font-weight: 400;
+            text-align: left;
+            padding: 0;
+            text-decoration: none;
+
+        }
+
+
+        h4 {
+            color: #3b72ce;
+            font-size: 17px;
+            font-weight: 400;
+            text-align: center;
+            padding: 15px;
+            text-decoration: underline;
+        }
+
+        .table-container {
+            overflow-x: auto;
+            border: 1px solid #999;
+            padding: 20px;
+            margin: 20px;
+
+
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            padding: 30px;
+            box-shadow: 0 4 20px rgba(0, 0, 0, 0.1);
+            font-size: 15px;
+
+
+        }
+
+        th,
+        td {
+            border: 1px solid #999;
+            padding: 10px;
+            box-shadow: 0 4 20px rgba(0, 0, 0, 0.1);
+
+        }
+
+        th {
+            background-color: #f4f4f4;
+        }
+
+        h2 {
+            text-align: center;
+            color: #555;
+            padding: 10px;
+            font-size: 18px;
+            border: 1px solid #999;
+
+        }
+
+        .coleur p {
+            color: #3b72ce;
+            font-size: 18px;
+            font-weight: 600;
+            text-align: center;
+            text-decoration: underline;
+            padding: 15px;
+
+        }
+
+        .coleur {
+            background-color: #dff6f8;
+        }
+
+        .couleur2 {
+            background-color: #bdc0c5;
+        }
+
+        i {
+            font-size: 18px;
+        }
+
+        .reseau a {
+            text-decoration: none;
+            color: black;
+            font-size: 20px;
+            font-weight: 600;
+            padding: 10px;
+        }
+
+        .reseau {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+        }
+
+        .email {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            margin: auto;
+        }
+
+        .email input {
+            padding: 10px;
+            border: 1px solid #999;
+            border-radius: 5px;
+            font-size: 15px;
+            font-weight: 600;
+            text-align: center;
+            width: 40%;
+            text-align: left;
+        }
+
+        .email button {
+            padding: 12px;
+            border: 1px solid #999;
+            border-radius: 5px;
+            font-size: 10px;
+            font-weight: 600;
+            text-align: center;
+            width: 10%;
+            text-align: center;
+            background-color: black;
+            color: white;
+        }
+
+
+        .blink {
+            animation: blinker 2s linear infinite;
+            color: black;
+            font-weight: 900;
+        }
+
+        /* style du footer */
+
+        footer {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+
+        .footer {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+            font-weight: 600;
+
+
+        }
+
+        .footer h4 {
+            color: rgb(172, 9, 9);
+            font-size: 15px;
+            font-weight: 600;
+            text-decoration: none;
+
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            font-size: 12px;
+
+        }
+
+        #copy {
+            text-align: center;
+            padding: 10px;
+            color: #333;
+            font-size: 12px;
+            font-weight: 600;
+            font-family: "Poppins", serif;
+        }
+
+        @keyframes blinker {
+            50% {
+                opacity: 0;
+            }
+        }
+
+        .blink {
+            animation: blinker 1.5s linear infinite;
+        }
+
+        @keyframes blinker {
+            50% {
+                opacity: 0;
+            }
+        }
+
+        .blink-one {
+            animation: blinker-one 1s linear infinite;
+        }
+
+        @keyframes blinker-one {
+            0% {
+                opacity: 0;
+            }
+        }
+
+        .blink-two {
+            animation: blinker-two 1.4s linear infinite;
+        }
+
+        @keyframes blinker-two {
+            50% {
+                opacity: 0;
+            }
+        }
+
+
+
+
+
+
+        /* _________________________Responsive Design __________________________ */
+
+        @media (max-width: 600px) {
+
+            th,
+            td {
+                padding: 8px;
+                font-size: 12px;
+            }
+
+            h2 {
+                text-align: left;
+                color: #555;
+                padding: 10px;
+                font-size: 12px;
+                border: 1px solid #999;
+            }
+
+            h4 {
+                color: #3b72ce;
+                font-size: 10px;
+                font-weight: 400;
+                text-align: left;
+                padding: 0;
+                text-decoration: none;
+            }
+
+            .footer {
+                display: flex;
+
+                align-items: center;
+                padding: 10px;
+                background-color: #f4f4f4;
+                color: #333;
+                font-size: 15px;
+                font-weight: 600;
+                flex-wrap: nowrap;
+
+
+
+            }
+
+            .footer h4 {
+                color: rgb(172, 9, 9);
+                font-size: 10px;
+                font-weight: 600;
+                text-align: left;
+
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <!-- _________________header_____________________________ -->
+    <div class="bienvenue">
+        <h1> bienvenue dans votre esoace client :</h1>
+        <div class="header">
+            <p>monsieur: <span id="nom"> tony boucharda</span></p>
+            <P> votre gestionnaire : <span id="prenom"> declin alexandre</span></P>
+
+        </div>
+        <div class="date">
+            <p style="color:  green ;"> derniere connexion : </p>
+            <p id="date" style="font-weight: 700;">...</p>
+            <h3 id="time" style="color: rgb(156, 15, 15);">--:--:--</h3>
+        </div>
+
+    </div>
+
+
+    <div class="table-container">
+
+        <h2> compte courant / <span style="font-size: 12px; color: green;">compte en ligne <i
+                    class='bx bxs-user bx-flashing'></i></span></h2>
+        <table>
+
+
+            <thead>
+                <h4>details-releve d'identite Bancaire(RIB)</h4>
+
+                <tr>
+                    <td class="coleur">titulaire du compte</td>
+                    <td class="couleur2">Antony bouchard</td>
+
+
+                </tr>
+            </thead>
+            <tbody id="table-body">
+                <tr>
+                    <td class="coleur">numero du compte</td>
+                    <td><span style="color: rgb(88, 88, 206);">1294568921</span></td>
+
+                </tr>
+                <tr>
+                    <td class="coleur">IBAN du compte</td>
+                    <td class="couleur2">FR76<span
+                            style="color: rgb(88, 88, 206); font-size: 13px; font-weight: 200; font-family: 'Times New Roman', Times, serif;">3000
+                            0423 000114423 3004</span> </td>
+
+                </tr>
+                <tr>
+                    <td class="coleur">sode banque</td>
+                    <td>3000</td>
+
+                </tr>
+                <tr>
+                    <td class="coleur">code agence</td>
+                    <td class="couleur2">423</td>
+
+                </tr>
+                <tr>
+                    <td class="coleur"> code SWIFT</td>
+                    <td>AGRIFRPP</td>
+
+                </tr>
+                <tr>
+                    <td class="coleur">clef rib</td>
+                    <td class="couleur2">56</td>
+
+                </tr>
+                <tr>
+                    <td class="coleur">domiciliation de fond</td>
+                    <td>lcl banque lyonnais</td>
+
+                </tr>
+
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td class="coleur">statut du compte</td>
+                    <td class="couleur2">
+                        <marquee style="color: rgb(161, 7, 7);">compte bloque / frais de deblocage:18.893</marquee>
+                    </td>
+                </tr>
+            </tfoot>
+
+        </table>
+        <Table>
+            <thead>
+                <tr class="coleur">
+                    <h4>releve de votre situation Bancaire</h4>
+                    <td>compte courant</td>
+                    <td>numero de compte</td>
+                    <td>balance</td>
+                </tr>
+                <tr class="couleur2">
+                    <td>antony bouchard</td>
+                    <td>1294568921</td>
+                    <td>15 000 000,00</td>
+                </tr>
+            </thead>
+
+        </Table> <br>
+        <table>
+            <tr class="coleur">
+                <td class="blink "> solde du 03/ 01/ 2025</td>
+                <td style="color: rgb(190, 35, 35);">
+                    <marquee>15.000 000 </marquee>
+                </td>
+            </tr>
+        </table>
+
+
+    </div>
+    <div class="reseau">
+        <p>follow user on </p>
+        <a href=""> <i class='bx bxl-facebook bx'></i></a>
+        <a href=""> <i class='bx bxl-instagram bx'></i></a>
+        <a href=""> <i class='bx bxl-linkedin bx'></i></a>
+        <a href=""> <i class='bx bxl-youtube bx'></i></a>
+    </div>
+
+    <div class="email">
+        <input type="email" name="" id="" placeholder="enter your email">
+        <button>join</button>
+    </div>
+    <footer>
+        <div class="footer">
+
+            <ul>
+                <h4>CUSTOMER CARE</h4>
+                <li>help center</li>
+                <li>faq</li>
+                <li>how to buy</li>
+                <li>delivery</li>
+            </ul>
+
+            <ul>
+                <h4>ABOUT US</h4>
+                <li>our story</li>
+                <li>press</li>
+                <li>career</li>
+                <li>contact</li>
+            </ul>
+
+            <ul>
+                <h4>MY ACCOUNT</h4>
+                <li>register</li>
+                <li>my cart</li>
+                <li>order storie</li>
+                <li>payment</li>
+            </ul>
+
+            <ul>
+                <h4>OUR STORS</h4>
+                <li> <i class='bx bxs-edit-location'></i> mark piter</li>
+                <li><i class='bx bx-phone-incoming'></i> 0937676376</li>
+                <li><i class='bx bx-message-dots'></i> message</li>
+            </ul>
+        </div>
+        <p id="copy"> &copy; 2025 UBA . all right reserved/design by uba tecknology develloper</p>
+
+    </footer>
+
+    <script>
+        function updateDateTime() {
+            const now = new Date();
+
+            // Formatage de l'heure
+            const hours = String(now.getHours()).padStart(2, "0");
+            const minutes = String(now.getMinutes()).padStart(2, "0");
+            const seconds = String(now.getSeconds()).padStart(2, "0");
+
+            // Formatage de la date
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            const formattedDate = now.toLocaleDateString("fr-FR", options);
+
+            // Détection du fuseau horaire
+            const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+
+            // Mise à jour du DOM
+            document.getElementById("time").textContent = `${hours}:${minutes}:${seconds}`;
+            document.getElementById("date").textContent = `Date : ${formattedDate}`;
+            document.getElementById("timezone").textContent = `Fuseau horaire : ${timezone}`;
+        }
+
+        // Mise à jour toutes les secondes
+        setInterval(updateDateTime, 1000);
+        updateDateTime(); // Exécute immédiatement pour éviter le délai
+    </script>
+</body>
+
+</html>
